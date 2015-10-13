@@ -1,0 +1,40 @@
+ladjica = []
+
+for i in range(0,100):
+    ladjica.append(False)
+
+print ladjica
+
+from random import randint
+
+num1 = randint(0,50)
+num2 = randint(num1,100)
+print num1, num2
+
+print "Ladjica je med %s in %s" % (num1, num2)
+
+for i in range(num1, num2 + 1):
+    ladjica[i] = True
+print ladjica
+
+gameRunning = True
+shipPiecesleft = 0
+
+while gameRunning:
+    tarca = int(raw_input("Vesi stevilo med 0 in 100: "))
+    if ladjica[tarca] == True:
+        print("Ladja zadeta!")
+        break
+    elif ladjica[tarca] == False:
+        print "Zgresil si! Poskusi ponovno..."
+    else:
+        print "Ni ti uspelo"
+
+for i in range(0,100):
+    if ladjica[i] == True:
+        shipPiecesleft = shipPiecesleft + 1
+        if shipPiecesleft == 0:
+            gameRunning = False
+        else:
+            shipPiecesleft = 0
+print "Potopil si mojo ladjico"
